@@ -1,0 +1,64 @@
+#include <stdio.h> 
+#include<math.h>
+#pragma warning(disable:4996)
+
+void scale(char* str)
+{
+	int ten = 0, num = 0, n = 0;
+	while (str[++num] != '\0') {
+		;
+	}
+	int i = 0;
+	while (i <= num) {
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			n = (int)(str[i] - '0');
+		}
+		else if (str[i] >= 'a' && str[i] <= 'f')
+		{
+			n = (int)(str[i] - 'a' + 10);
+		}
+		else if (str[i] >= 'A' && str[i] <= 'F')
+		{
+			n = (int)(str[i] - 'A' + 10);
+		}
+		else
+		{
+			break;
+		}
+		ten += n * pow(16, (double)num - 1 - (double)i);
+		i++;
+	}
+	int eight = 0,m=0;
+	i = 0;
+	while (ten)
+	{
+		m = ten % 8;
+		ten /= 8;
+		eight += m * pow(10, i);
+		i++;
+	}
+	printf("%d", eight);
+}
+
+int main() 
+{
+	int num;
+	scanf("%d",&num);
+	char** arr;
+	arr = (char**)malloc(num * sizeof(char*));  
+	for (int i = 0; i < num; i++)
+	{
+		*(arr + i) = (char*)malloc(sizeof(char) * 100);
+	}
+	for (int i = 0; i < num; i++)
+	{
+		scanf("%s", arr[i]);
+	}
+	for (int i = 0; i < num; i++)
+	{
+		scale(arr[i]);
+	}
+	free(arr);
+	return 0;
+}
