@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int n;
+int look(int t);
+int findMax(long long int a,long long int b);
+long long int fact(long long int a,long long int b);
+int main(){
+	scanf("%d",&n);
+	for(int i=16;i>=0;i--){
+		if(look(i))
+			break;
+	}
+}
+//查找（二分查找） 
+int look(int t){
+	long long int count;
+	long long int head=2*t,tail=findMax(head,n);
+	while(head<tail){
+		int mid=head+tail>>1;
+		if(fact(t,mid)>=n){
+			tail=mid;
+		}else{
+			head=mid+1;
+		}
+	}
+	if(fact(t,tail)!=n){
+		return 0;
+	}else{
+		count=((tail+1)*tail)/2+(t+1);
+		printf("%lld",count);
+		return 1;
+	}
+}
+int findMax(long long int a,long long int b){
+	if(a<b){
+		return b;
+	}else{
+		return a;
+	}
+}
+//求值 
+long long int fact(long long int a,long long int b){
+	long long int temp=1;
+	for(int i=b,j=1;j<=a;i--,j++){
+		temp=temp*(i/j);
+		if(temp>n)
+			return temp;
+	}
+	return temp;
+}
