@@ -1,0 +1,35 @@
+package helloworld;
+
+public class Text {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//3班：50，比较次数：50
+	//创建集合
+//		Set<Student> sell=new Hashset<>();
+//		//创建学生对象
+//		Student s1=new Student("张三"，18，202201)；
+//		Student s2=new Student("张三"，18，202201)；
+//		//添加对象到集合中
+//		Set 
+		//先判断小问题再判断大问题
+		try {
+			System.out.println(divide(3,0));
+			System.out.println("1.出错位置后的代码");
+		}catch(NullPointerException e) {
+			System.out.println("2.数学运算出了问题");
+		}catch(ArithmeticException e){
+			System.out.println("3.数组越界");
+		}catch(Exception e) {
+			System.out.println("4.出了问题");
+		}finally {
+			System.out.println("5");
+		}
+		System.out.println("6");
+	}
+		
+		public static int divide(int a,int b)
+		{
+			return a/b;
+	}
+}
