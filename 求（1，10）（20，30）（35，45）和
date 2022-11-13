@@ -1,0 +1,33 @@
+package helloworld;
+
+import java.util.Scanner;
+
+public class Student {
+	public static void sum(int a,int b)
+	{
+		int i;
+		int sum;
+		sum=0;
+		for(i=a;i<=b;i++)
+		{
+			 sum+= i;
+		}
+		System.out.println(a+"到"+b+"的和是"+sum);
+	}
+	public static void f()
+	{
+		System.out.println("f()");
+	}
+	public static void main(String[] args) {
+//		Scanner in = new Scanner(System.in);
+		f();
+		sum(1,10);
+		sum(20,30);
+		sum(35,45);
+
+```
+}
+```
+
+}
+//求（1，10）（20，30）（35，45）和
